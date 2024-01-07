@@ -17,8 +17,9 @@ function productPrice (isIncress,quantityId){
     return newNumber;     
     }
 
-function priceMultiply (newNumber,productPrice){
-    const phoneValue = document.getElementById("phone_price")
+function priceMultiply (newNumber,productPrice,product){
+    console.log(newNumber,productPrice,product);
+    let phoneValue=document.getElementById(product)
     const newPrice = newNumber * productPrice;
     phoneValue.innerText = newPrice
 }
@@ -28,16 +29,34 @@ function priceMultiply (newNumber,productPrice){
 
 document.getElementById("phone_minus_btn").addEventListener("click", function () {
     const newNumber = productPrice(false,"phone_value")
-    // Phone Price Is $1219
-    priceMultiply(newNumber, 1219)
+    // newNuber mean product #Quantity / 2nd peramitar price #1219 / price update field. "phone_price"
+    priceMultiply(newNumber, 1219,"phone_price")
 })
 
 
 document.getElementById("phone_plus_btn").addEventListener("click", function () {
     const newNumber = productPrice(true,"phone_value")
-    // Phone Price Is $1219
-    priceMultiply(newNumber,1219)
+   // newNuber mean product #Quantity / 2nd peramitar price #1219 / price update field. #"phone_price"
+    priceMultiply(newNumber,1219,"phone_price")
 
 })
 
+
+// Case Price Functionality
+
+
+document.getElementById("case_minus_btn").addEventListener("click", function () {
+    const newNumber = productPrice(false,"case_value")
+    // newNuber mean product #Quantity / 2nd peramitar price #59 / price update field. #case_price 
+
+    priceMultiply(newNumber, 59,"case_price",)
+})
+
+
+document.getElementById("case_plus_btn").addEventListener("click", function () {
+    const newNumber = productPrice(true,"case_value")
+      // newNuber mean product #Quantity / 2nd peramitar price #59 / price update field. #case_price
+    priceMultiply(newNumber,59,"case_price")
+
+})
 
